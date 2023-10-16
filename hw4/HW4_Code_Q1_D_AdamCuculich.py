@@ -6,9 +6,9 @@ import matplotlib.animation as animation
 ##########################################
 ##    Metropolis-Hastings Algorithm     ##
 ##########################################
-def target_function(x):
-    constant_term = (1 / (2 * np.pi * np.sqrt(1 - x**2))) ** 100
-    exponent_term = np.exp(-(221.8903 - 169.0494 * x) / (2 * (1 - x**2)))
+def target_function(rho):
+    constant_term = (1 / (2 * np.pi * np.sqrt(1 - rho**2))) ** 100
+    exponent_term = np.exp(-(221.8903 - 169.0494 * rho) / (2 * (1 - rho**2)))
     return constant_term * exponent_term
 
 
@@ -21,26 +21,25 @@ def proposal_function():
 
 
 # Initialization
-x_t_minus_1 = 0.5
-x_t = 0.6
+rho_prev = 0.5
+rho = 0.6
 
 # Initial state storage
-state_array = [x_t_minus_1, x_t]
+state_array = [rho_prev, rho]
 
 for i in range(50999):
-    x_t_next = proposal_function()
-    x_t_value = target_function(x=x_t)
-    x_t_next_value = target_function(x=x_t_next)
-    alpha = min(1, x_t_next_value / x_t_value)
+    rho_prime = proposal_function()
+    rho_value = target_function(rho=rho)
+    rho_prime_value = target_function(rho=rho_prime)
+    alpha = min(1, rho_prime_value / rho_value)
     random_uniform = uniform_generator()
 
     # move criteria
     if alpha > random_uniform:
-        x_t_minus_1 = x_t
-        x_t = x_t_next
+        rho_prev = rho
+        rho = rho_prime
 
-    state_array.append(x_t)
-
+    state_array.append(rho)
 
 ##########################################
 ##   Histogram: latter 50,000 samples   ##
@@ -64,7 +63,6 @@ plt.ylabel("Density")
 plt.grid(True, which="both", linestyle="--", linewidth=0.5)
 plt.show()
 
-
 ##########################################
 ## Trace Plot: last 1,000 realizations  ##
 ##########################################
@@ -78,29 +76,28 @@ ax.set_title("Last 1000 Realizations of ρ")
 plt.grid(True, which="both", linestyle="--", linewidth=0.5)
 plt.show()
 
-
 ##########################################
 #               Animation               ##
 ##########################################
 fig, ax = plt.subplots(figsize=(8, 6))
-x_values = np.linspace(-6, 6, 400)
-y_values = target_function(x_values)
-ax.plot(x_values, y_values, label="Target Function")
+rho_values = np.linspace(-6, 6, 400)
+target_function_values = target_function(rho_values)
+ax.plot(rho_values, target_function_values, label="Target Function")
 ax.set_title("Metropolis Sampling on Target Function")
-ax.set_xlabel("x")
-ax.set_ylabel("f(x)")
+ax.set_xlabel("ρ")
+ax.set_ylabel("f(ρ)")
 ax.grid(True)
 
 stored_points = []
 
 
 def update(frame):
-    x = state_array[frame]
-    y = target_function(x)
-    stored_points.append((x, y))
-    x_coords, y_coords = zip(*stored_points)
+    rho = state_array[frame]
+    target_function_value = target_function(rho)
+    stored_points.append((rho, target_function_value))
+    rho_coords, target_function_value_coords = zip(*stored_points)
 
-    ax.plot(x_coords, y_coords, "ro", markersize=4)
+    ax.plot(rho_coords, target_function_value_coords, "ro", markersize=4)
 
 
 ani = animation.FuncAnimation(
@@ -108,3 +105,13 @@ ani = animation.FuncAnimation(
 )
 
 plt.show()
+
+
+"""
+Results:
+The trace plot is far less dense: the range of the uniform distribution is much larger,
+so there are many values that do not make it past the acceptance criteria.
+
+As manifest in the animation, it's clear that an independence proposal is less efficient in
+its discovery time.
+"""

@@ -81,8 +81,8 @@ print(f"μ: 95% Credible Interval = {mu_credible_interval}")
 
 """
 Results:
-λ: Mean = 0.05408563641715604, Variance = 0.00036408420000627194
-μ: Mean = 0.6889173739011548, Variance = 0.06640324536026303
-λ: 95% Credible Interval = [0.02508711 0.09805567]
-μ: 95% Credible Interval = [0.31490174 1.3118191 ]
+λ: Mean = 0.054513434068013684, Variance = 0.0003724312507843258
+μ: Mean = 0.6836937608980612, Variance = 0.06585634501123556
+λ: 95% Equitailed Credible Set = [0.02532385 0.10026695]
+μ: 95% Equitailed Credible Set = [0.30615996 1.30088625]
 """

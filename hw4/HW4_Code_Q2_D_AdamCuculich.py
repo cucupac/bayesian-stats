@@ -55,5 +55,5 @@ print("Bayes Estimator:", bayes_estimator)
 
 """
 Results:
-Bayes Estimator: 0.03368101273630085
+Bayes Estimator of Product: 0.03368101273630085
 """
