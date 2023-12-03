@@ -1,0 +1,7 @@
+business_status,name,latitude,longitude,is_meal_takeaway,rating,user_ratings_total,price_level
+OPERATIONAL,Family Express,41.3178199,-87.0261309,False,3.9,84,
+OPERATIONAL,Subway,41.3166521,-87.02618969999999,True,4.3,93,1
+OPERATIONAL,Wana pizza,41.31631979999999,-87.02495379999999,False,4.9,9,
+OPERATIONAL,Cronies Charhouse & Ginmill,41.3159217,-87.026184,False,4.5,276,1
+OPERATIONAL,Cravin's To Order,41.3176115,-87.02607669999999,True,,,
+OPERATIONAL,Hole in the Wall Grill,41.3177073,-87.02561779999999,False,4.6,77,

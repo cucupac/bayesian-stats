@@ -1,0 +1,6 @@
+business_status,name,latitude,longitude,is_meal_takeaway,rating,user_ratings_total,price_level
+OPERATIONAL,Joe & Freddy’s Bar & Grill,41.6920107,-86.9400435,False,4.4,363,2
+OPERATIONAL,South Shore Ovenworks,41.67288560000001,-86.98546999999999,False,4.8,10,2
+OPERATIONAL,Goblin & The Grocer,41.6721543,-86.9856714,False,4.2,469,2
+OPERATIONAL,Pumps on 12 Restaurant,41.691035,-86.94335699999999,False,,,
+OPERATIONAL,Smokey's Southern Barbeque,41.6591686,-86.9955087,False,4.6,281,1
