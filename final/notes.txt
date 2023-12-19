@@ -1,0 +1,49 @@
+--------------- HW 5 #1 ---------------
+
+Here, the specify to use Gamma likelihood. They also specify to use noninformative shape and rate parameters. From this,
+we can conclude that there is no linear regression model to be constructed. It's asking for the distribution of the 
+DIFFERENCE in mean values between the two procedures. We know that the Bayes' estimator (mean) is a/b for Ga(a,b). If we 
+want to be technical, the problem also states that the priors should be gamma distributions: we have gamma likelihood and 
+gamma priors --> via conjugacy, we have a gamma posterior.
+
+--------------- HW 5 #2 ---------------
+
+[A] Here, it's asking us to fit a logistic regression. This is particularly fitting, as the outcome we're trying to predict is
+binary in natures (logit or probit). It's asking for the independent variable to be cornea thickness. We can therefor setup 
+a regession of: y = intercept + beta * cornea_thickness. That said, for logit, we'd use invlogit. The priors are normal distributions.
+Now, when using logit, we use bernouli likelihood, as the outcomes are binary in nature.
+
+[B] We're doing an out-of-distribution predection here with a cornea thickness of 490. Simple sample_posterior_predictive, 
+but make sure to standardize the data first.
+
+[C] Repeat with probit. How to assess which is better? A concept called "deviance" is employed here, via az.waic. The model with
+the lower deviance is better.
+
+--------------- HW 5 #3 ---------------
+
+[A] Asks for a Poisson distribuiton regression, so we know we'll have "y = mx + b" somewhere. Similar to normal linear regression,
+mu gets plugged in as a parameter to the likelihood. Except this time, the mu is: mu = pm.math.exp(beta0 + beta1 * x_data)
+
+[B] What's the average y for an out-of-sample independent variable? Once again, we have sample_posterior_predictive.
+
+
+--------------- HW 6 #1 ---------------
+[A] Demonstrate the a normal linear regression has a low "R^2" value. This problem involves first imputing some missing data.
+Once the model is constructed, we use az.r2_score to obtain the R^2 score.
+
+[B] We make the regression quadratic by adding an additional term (not simply replacing). We then calculate R^2 the same way.
+
+
+-------------- HW 6 #2 ---------------
+
+
+
+
+-------------- HW 6 #3 ---------------
+[A] What this problem shows us is that one way to predict using your model, you can just deterministic the predicted variable
+for the new x values (easy way)
+
+[B] Any outliers? We check that using "az.loo" and "empirical cdf".
+
+[C] Compare the "performance of a few different models". Use Ibrahim-Laud criterion. We have our different models. 
+We use math.stack. We get L values.

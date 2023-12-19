@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.3)  29 NOV 2023 21:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.9.3)  17 DEC 2023 17:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -254,23 +254,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
-[3] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
+[4]
 <assets/visual_2.png, id=27, 3468.96pt x 1003.75pt>
 File: assets/visual_2.png Graphic file (type png)
 <use assets/visual_2.png>
-Package pdftex.def Info: assets/visual_2.png  used on input line 106.
+Package pdftex.def Info: assets/visual_2.png  used on input line 103.
 (pdftex.def)             Requested size: 292.5pt x 84.62074pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
 
  []
 
@@ -278,31 +279,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--123
 <assets/visual_3.png, id=32, 3834.325pt x 3798.19pt>
 File: assets/visual_3.png Graphic file (type png)
 <use assets/visual_3.png>
-Package pdftex.def Info: assets/visual_3.png  used on input line 134.
+Package pdftex.def Info: assets/visual_3.png  used on input line 131.
 (pdftex.def)             Requested size: 195.0pt x 193.10818pt.
 <assets/visual_4.png, id=33, 3834.325pt x 3938.715pt>
 File: assets/visual_4.png Graphic file (type png)
 <use assets/visual_4.png>
-Package pdftex.def Info: assets/visual_4.png  used on input line 138.
+Package pdftex.def Info: assets/visual_4.png  used on input line 135.
 (pdftex.def)             Requested size: 195.0pt x 200.25278pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
-
- []
-
-[6 <./assets/visual_3.png> <./assets/visual_4.png>]
+ [6 <./assets/visual_3.png> <./assets/visual_4.png>]
 <assets/visual_5.png, id=39, 3834.325pt x 3874.475pt>
 File: assets/visual_5.png Graphic file (type png)
 <use assets/visual_5.png>
-Package pdftex.def Info: assets/visual_5.png  used on input line 155.
+Package pdftex.def Info: assets/visual_5.png  used on input line 152.
 (pdftex.def)             Requested size: 280.80048pt x 283.71521pt.
 <assets/visual_6.png, id=40, 1489.565pt x 2011.515pt>
 File: assets/visual_6.png Graphic file (type png)
 <use assets/visual_6.png>
-Package pdftex.def Info: assets/visual_6.png  used on input line 159.
+Package pdftex.def Info: assets/visual_6.png  used on input line 156.
 (pdftex.def)             Requested size: 109.19952pt x 147.45016pt.
- [7 <./assets/visual_5.png> <./assets/visual_6.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
+[7 <./assets/visual_5.png> <./assets/visual_6.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
 
@@ -310,13 +306,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 176--177
 <assets/visual_7.png, id=61, 2127.95pt x 1114.1625pt>
 File: assets/visual_7.png Graphic file (type png)
 <use assets/visual_7.png>
-Package pdftex.def Info: assets/visual_7.png  used on input line 238.
+Package pdftex.def Info: assets/visual_7.png  used on input line 235.
 (pdftex.def)             Requested size: 390.0pt x 204.19576pt.
  [11 <./assets/visual_7.png>]
 <assets/visual_8.png, id=66, 13879.855pt x 5259.65pt>
 File: assets/visual_8.png Graphic file (type png)
 <use assets/visual_8.png>
-Package pdftex.def Info: assets/visual_8.png  used on input line 251.
+Package pdftex.def Info: assets/visual_8.png  used on input line 248.
 (pdftex.def)             Requested size: 390.0pt x 147.75073pt.
  [12 <./assets/visual_8.png>]
 (./Bayes Theorem.aux)
@@ -331,7 +327,7 @@ Here is how much of TeX's memory you used:
  24411 multiletter control sequences out of 15000+600000
  521091 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,8n,63p,1034b,345s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,8n,63p,1506b,345s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.p
@@ -346,7 +342,7 @@ cal/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local
 xlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "Bayes Theorem.pdf" (12 pages, 3548163 bytes).
+Output written on "Bayes Theorem.pdf" (12 pages, 3549231 bytes).
 PDF statistics:
  130 PDF objects out of 1000 (max. 8388607)
  71 compressed objects within 1 object stream

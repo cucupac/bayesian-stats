@@ -16,14 +16,14 @@
 \maketitle % This command prints the title
 
 \subsection*{Introduction:}
-This document aims to provide a geometric, or visual, interpretation of Bayes’ Theorem. It endeavors to guide readers from the fundamental principles to an intuitive understanding of the theorem. Starting with known probabilities, the paper derives Bayes’ Rule using conditional probabilities and advances to a pragmatic application of Bayes’ Theorem, addressing probability distributions represented as random variables. In doing so, I strive to bridge analytical descriptions with geometric interpretations, thus offering a comprehensive insight into the theorem’s intrinsic dynamics. This exposition will also discuss the challenges associated with the normalizing constants in Bayes’ Theorem, particularly when complex integrals are involved. A succinct introduction to sampling methods, as vital to the implementation of Bayesian methods in tangible scenarios, is presented. Ultimately, the goal is to lay down a theoretical yet intuitive foundation in Bayesian statistics. \\\\
+This document aims to provide a geometric, or visual, interpretation of Bayes’ Theorem. It endeavors to guide readers from the fundamental principles to an intuitive understanding of the theorem. Starting with known probabilities, the paper derives Bayes’ Rule using conditional probabilities and advances to a pragmatic application of Bayes’ Theorem, addressing probability distributions represented as random variables. In doing so, I strive to bridge analytical descriptions with geometric interpretations, thus offering a comprehensive insight into the theorem’s intrinsic dynamics. Ultimately, the goal is to lay down a theoretical yet intuitive foundation in Bayesian statistics. \\\\
 
 \newpage
 
 \subsection*{Bayes Rule}
-In this section, we'll derive Bayes' Rule using known conditional probabilities, and we'll offer a geometric interpretation of the underlying mechanics involved in the relationships between such probabilities.
+Show below, Bayes' Rule can be derived using known conditional probabilities. A geometric interpretation of the underlying mechanics is also provided in this section.
 \subsubsection*{Conditional Probabilities:}
-Let \( A \subseteq S \) and \( B \subseteq S \), where \( S \) is the sample space of all possible events. \\\\
+Let \(A\) and \(B\) be distinct sets of events in set \(S\), where \(S\) is the sample space of all possible events. In other words, let  \( A \subseteq S \) and \( B \subseteq S \). \\\\
 The conditional probability of event \( A \), given event \( B \) is defined as:
 \begin{equation}
 P(A \mid B) = \frac{P(A \cap B)}{P(B)}
@@ -39,7 +39,7 @@ P(A \mid B) = \frac{P(A \cap B)}{P(B)}
 \label{fig:cond_prob}
 \end{figure}
 
-\noindent As shown in the figure above, the probability of an event A, given an event B, is the probability of both A and B occurring, divided by the the probability of B occurring. For clarity, consider the following question: suppose event B will happen with some probability. If B occurs, what is the probability that A also occurs? Unless there is a direct, guaranteed, causal linkage between events B and A, the probability that A also occurs will be less than 1. Geometrically, the overlap between A and B (the purple shape above), will have less area than the shape representative of event B happening.
+\noindent Shown above, some of the shapes are subsets of other shapes. Each shape represents an event, or set of outcomes, that an upcoming outcome can be categorized as. Each shape’s area is used to represent the probability of an outcome being categorized into the event the shape represents. The sample space, $S$, represents all possible events relevant to a specific, given context. Because all possible, mutually exclusive and collectively exhaustive events are encompassed within $S$, you can be 100\% certain that an “upcoming outcome” will be categorized within the set of outcomes that is $S$. Therefore, $P(S) = 1$. As a useful representation, the probability of an upcoming outcome being categorized as a particular event is a number that describes the certainty of that outcome taking on the specific properties that define that event. When it comes to conditional probabilities, the following question provides insight into their nature: “given you know $B$ happened, what’s the probability $A$ also happened?” The added knowledge of $B$’s occurrence confines the set of outcomes to those in $B$. Succinctly, $P(A \mid B)$ is the proportion of occurrences of B where A also occurs. This proportion can be 0, 1, or anywhere in between. For example, if events $A$ and $B$ are mutually exclusive, then the probability that $A$ occurs given a known $B$ occurrence would be 0. If instead, $A$ always occurs when $B$ occurs, it would be 1.	
 
 \subsubsection*{Deriving Bayes' Rule:}
 Given the definition of conditional probability,
@@ -69,13 +69,11 @@ P(A \mid B) P(B) = P(B \mid A) P(A)
 P(A \mid B) = \frac{P(B \mid A) P(A)}{P(B)}
 \end{equation}
 
-\noindent With Bayes' Rule established, we transition from the abstract events, A and B, to the concepts of experimentally observed events (Evidence, E) and proposed hypotheses (H). This transition is underpinned by the principle that, akin to A and B, both observed data (evidence) and explanatory hypotheses are events within a shared sample space. Hypotheses are characterized as events that are evaluated in light of the observed data.
+\noindent With Bayes' Rule established, we transition from the abstract events, A and B, to the concepts of experimentally observed events (Evidence, E) and proposed hypotheses (H). This transition is underpinned by the principle that, akin to A and B, both observed data (evidence) and hypotheses are events within a shared sample space. Hypotheses are characterized as events that are evaluated in light of the observed data.
 
 \begin{equation}
 P(H \mid E) = \frac{P(E \mid H) P(H)}{P(E)}
 \end{equation}
-
-\newpage
 
 \subsubsection*{Total Probability:}
 \noindent Above, $P(E)$ is the total probability of the evidence occurring, taking into account all possible, mutually exclusive hypotheses. Now, suppose you constructed an array with all possible hypotheses, each with its own probability. To ensure that all cases and their compliments are accounted for, the sum of all of the hypotheses' probabilities should be 1. For each hypothesis, there will be some probability of the evidence in question occurring, given that hypothesis (a conditional probability). For clarity, here the evidence is conditioned on that hypothesis. We now have an array where each element in that array is a conditional probability: namely, probability of the evidence, E, given that element's hypothesis. This can be expressed for $n$ hypotheses as follows:
@@ -96,7 +94,6 @@ P(E) = \sum_{i=1}^{n} P(E \mid H_i) P(H_i)
 P(H_j \mid E) = \frac{P(E \mid H_j) P(H_j)}{\sum_{i=1}^{n} P(E \mid H_i) P(H_i)}, \text{ where } j \in \{1, 2, \ldots, n\}
 \end{equation}
 
-\newpage
 \subsection*{Bayes' Rule: A Geometric Interpretation:}
 \noindent The foregoing states that the probability of a hypothesis, given evidence is the conditional probability of evidence given that particular hypothesis ($H_j$) over the total probability of the evidence, taking into account all possible hypotheses. This can be visually represented as follows: \\
 
@@ -142,7 +139,7 @@ P(H_j \mid E) = \frac{P(E \cap H_j)}{\sum_{i=1}^{n} P(E \cap H_i)}, \text{ where
 \end{figure}
 
 
-\noindent Now, shown in Figure 4, the hypothesis space can be divided into all relevant hypotheses, denoted by the subsections below. Such sections are actually one-dimensional, as they are orthogonal to the conditional evidence space. \\
+\noindent Shown above, the hypothesis space can be divided into all relevant hypotheses, denoted by the subsections above. Such sections are actually one-dimensional, as they are orthogonal to the conditional evidence space.
 
 \newpage
 
@@ -173,7 +170,7 @@ P(H_j \mid E) = \frac{P(E \cap H_j)}{\sum_{i=1}^{n} P(E \cap H_i)}, \text{ where
 \pi(\theta \mid x) = \frac{f(x \mid \theta) \pi(\theta)}{\int_{\Theta} f(x \mid \theta) \pi(\theta) d\theta}
 \end{equation}
 
-\noindent It's worth taking some time to understand what this equation is expressing. Intuitively, we know that Bayes' Theorem incorporates information from both experiment and prior beliefs, but to what end? We've heard that a bayesian update is the process by which a prior distribution is updated to a posterior distribution in light of experimental evidence, but how exactly is that achieved? In an effort to gain a deeper understanding, let's first understand the numerator of the theorem, as the denominator is simply the integral of the theorem with respect to $\theta$. \\
+\noindent It's worth taking some time to understand what this equation is expressing. Intuitively, we know that Bayes' Theorem incorporates information from both experiment and prior beliefs, but to what end? We've heard that a bayesian update is the process by which a prior distribution is updated to a posterior distribution in light of experimental evidence, but how exactly is that achieved? In an effort to gain a deeper understanding, let's first understand the numerator of the theorem, as the denominator is simply the integral of the numerator with respect to $\theta$. \\
 
 \subsection*{Likelihood}
 \noindent The term, $f(x\mid\theta)$, is often referred to as the likelihood. Here, the likelihood function evaluates the plausibility of the data $x$ under a statistical model parameterized by $\theta$, and identifies the parameter values that are most probable given the observed data. This definition involves some 'statistical model', about which the data plausibility can be assessed against.
@@ -226,17 +223,17 @@ L(\theta | x_1, \ldots, x_n) = \prod_{i=1}^n f(x_i|\theta) = \theta^n e^{-\theta
 \noindent In summary, we've arrived an an expression, in terms of $\theta$ informed by the experimental data set of lifetimes.
 
 \subsection*{The Prior}
-\noindent Thus far, we've selected a model, gather observed data from an experiment, and constructed a likelihood function in terms of parameter of interest, $\theta$. That said, we do not know the value of $\theta$. To account for such uncertainty, we can declare it a random variable and apply a probability distribution on what we think it's value is. For example, we may represent $\theta$ as taking on a range of possible values in $\pi(\theta)$, a normal distribution with a defined mean, $\mu$, and standard deviation, $\sigma^2$. Such a distribution is called the \textit{prior}, as it reflects beliefs about the parameter of interest prior to gathering empirical data. It's analog in cases where probabilities are known is $P(H)$. Similar to the likelihood function in the numerator of Bayes' Theorem, the prior distribution is also a function of $\theta$.
+\noindent Thus far, we've selected a model, gather observed data from an experiment, and constructed a likelihood function in terms of parameter of interest, $\theta$. That said, prior to an experiment, we do not know the value of $\theta$. To account for such uncertainty, we can declare it a random variable and apply a probability distribution on what we think it's value is. For example, we may represent $\theta$ as taking on a range of possible values in $\pi(\theta)$, a normal distribution with a defined mean, $\mu$, and standard deviation, $\sigma^2$. Such a distribution is called the \textit{prior}, as it reflects beliefs about the parameter of interest prior to gathering empirical data. It's analog in cases where probabilities are known is $P(H)$. Similar to the likelihood function in the numerator of Bayes' Theorem, the prior distribution is also a function of $\theta$.
 
 \newpage
 \subsection*{A Geometric Interpretation}
-\noindent We've demonstrated above that the numerator of Bayes' Theorem consists of two functions of $\theta$ multiplied by each other. The following visually demonstrates the multiplication of two distributions:
+\noindent We've demonstrated above that the numerator of Bayes' Theorem consists of two functions of $\theta$ multiplied by each other. The following visually demonstrates the multiplication of two arbitrary distributions:
 
 % Image
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1.0\textwidth]{assets/visual_7.png} 
-\caption{A visual representation two factor distributions and their product distribution}
+\caption{Two factor distributions and their product distribution}
 \label{fig:cond_prob}
 \end{figure}
 
@@ -254,7 +251,7 @@ L(\theta | x_1, \ldots, x_n) = \prod_{i=1}^n f(x_i|\theta) = \theta^n e^{-\theta
 \end{figure}
 
 \subsection*{The Posterior}
-\noindent While the product distribution clearly incorporates data from both prior beliefs and experiment, its evident that the product distribution is significantly smaller than both of the factor distributions. This is a problem, as the distribution must integrate to 1 in order to be considered a valid probability distribution. At this moment, the product distribution is proportional to what will be the posterior distribution $\pi(\theta \mid x)$, but it does not integrate to 1. For that reason, it's called the \textit{unnormalized posterior}. To obtain we a valid posterior probability distribution, the distribution must be \textit{normalized} by dividing by the scalar value $\int_{\Theta} f(x \mid \theta) \pi(\theta) d\theta$. To understand why, suppose the integral resolves to some value $v$, where $v \neq 1$. This implies that $v \cdot k = 1$, where $k$ is some proportionality constant.
+\noindent While the product distribution clearly incorporates data from both prior beliefs and experiment, its evident that the product distribution's total area is significantly smaller than both of the factor distributions. This is a problem, as the distribution must integrate to 1 in order to be considered a valid probability distribution. At this moment, the product distribution is proportional to what will be the posterior distribution $\pi(\theta \mid x)$, but it does not integrate to 1. For that reason, it's called the \textit{unnormalized posterior}. To obtain we a valid posterior probability distribution, the distribution must be \textit{normalized} by dividing by the scalar value $\int_{\Theta} f(x \mid \theta) \pi(\theta) d\theta$. To understand why, suppose the integral resolves to some value $v$, where $v \neq 1$. This implies that $v \cdot k = 1$, where $k$ is some proportionality constant.
 
 \end{document}
 
