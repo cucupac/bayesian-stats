@@ -39,7 +39,7 @@ P(A \mid B) = \frac{P(A \cap B)}{P(B)}
 \label{fig:cond_prob}
 \end{figure}
 
-\noindent Shown above, some of the shapes are subsets of other shapes. Each shape represents an event, or set of outcomes, that an upcoming outcome can be categorized as. Each shape’s area is used to represent the probability of an outcome being categorized into the event the shape represents. The sample space, $S$, represents all possible events relevant to a specific, given context. Because all possible, mutually exclusive and collectively exhaustive events are encompassed within $S$, you can be 100\% certain that an “upcoming outcome” will be categorized within the set of outcomes that is $S$. Therefore, $P(S) = 1$. As a useful representation, the probability of an upcoming outcome being categorized as a particular event is a number that describes the certainty of that outcome taking on the specific properties that define that event. When it comes to conditional probabilities, the following question provides insight into their nature: “given you know $B$ happened, what’s the probability $A$ also happened?” The added knowledge of $B$’s occurrence confines the set of outcomes to those in $B$. Succinctly, $P(A \mid B)$ is the proportion of occurrences of B where A also occurs. This proportion can be 0, 1, or anywhere in between. For example, if events $A$ and $B$ are mutually exclusive, then the probability that $A$ occurs given a known $B$ occurrence would be 0. If instead, $A$ always occurs when $B$ occurs, it would be 1.	
+\noindent Shown above, some of the shapes are subsets of other shapes. Each shape represents an event, or set of outcomes, that an outcome can be categorized as. Each shape’s area is used to represent the probability of an outcome being categorized into the event the shape represents. The sample space $S$ represents all possible events relevant to a specific, given context. Because all possible, mutually exclusive and collectively exhaustive events are encompassed within $S$, you can be 100\% certain that an outcome will be categorized within the set of outcomes that is $S$. Therefore, $P(S) = 1$. As a useful representation, the probability of an outcome being categorized as a particular event is a number that describes the certainty of that outcome taking on the specific properties that define that event. When it comes to conditional probabilities, the following question provides insight into their nature: “given you know $B$ happened, what’s the probability $A$ also happened?” The added knowledge of $B$’s occurrence confines the set of outcomes to those in $B$. Succinctly, $P(A \mid B)$ is the proportion of occurrences of B where A also occurs. This proportion can be 0, 1, or anywhere in between. For example, if events $A$ and $B$ are mutually exclusive, then the probability that $A$ occurs given a known $B$ occurrence would be 0. If instead, $A$ always occurs when $B$ occurs, it would be 1.	
 
 \subsubsection*{Deriving Bayes' Rule:}
 Given the definition of conditional probability,
@@ -105,7 +105,7 @@ P(H_j \mid E) = \frac{P(E \mid H_j) P(H_j)}{\sum_{i=1}^{n} P(E \mid H_i) P(H_i)}
 \label{fig:cond_prob}
 \end{figure}
 
-\noindent Now, let's lay the ground work for a Geometric interpretation. Bayes' Rule can be rearranged as follows:\\
+\noindent Now, let's lay the ground work for a geometric interpretation. Bayes' Rule can be rearranged as follows:\\
 
 \noindent Given:
 \begin{equation}
@@ -139,11 +139,11 @@ P(H_j \mid E) = \frac{P(E \cap H_j)}{\sum_{i=1}^{n} P(E \cap H_i)}, \text{ where
 \end{figure}
 
 
-\noindent Shown above, the hypothesis space can be divided into all relevant hypotheses, denoted by the subsections above. Such sections are actually one-dimensional, as they are orthogonal to the conditional evidence space.
+\noindent Shown above, the hypothesis space can be divided into all relevant hypotheses, denoted by the subsections above.
 
 \newpage
 
-\noindent Each hypothesis will have its own probability of evidence, previously referenced as $P(E \mid H_i)$ in the equations above. These conditional probabilities can be represented as the y-axis component of the joint probability sections below.
+\noindent Each hypothesis will have its own probability of evidence, previously referenced as $P(E \mid H_i)$ in the equation 11 above. These conditional probabilities can be represented as the y-axis component of the joint probability sections below.
 
 \begin{figure}[h!]
     \centering
@@ -231,7 +231,7 @@ L(\theta | x_1, \ldots, x_n) = \prod_{i=1}^n f(x_i|\theta) = \theta^n e^{-\theta
 \noindent In summary, we've arrived an an expression, in terms of $\theta$ informed by the experimental data set of lifetimes.
 
 \subsection*{The Prior}
-\noindent Thus far, we've selected a model, gathered observed data from an experiment, and constructed a likelihood function in terms of parameter of interest, $\theta$. That said, prior to an experiment, we do not know the value of $\theta$. To account for such uncertainty, we can declare it a random variable and apply a probability distribution on what we think it's value is. For example, we may represent $\theta$ as taking on a range of possible values in $\pi(\theta)$, a normal distribution with a defined mean, $\mu$, and standard deviation, $\sigma^2$. Such a distribution is called the \textit{prior}, as it reflects beliefs about the parameter of interest prior to gathering empirical data. It's analog in cases where probabilities are known is $P(H)$. Similar to the likelihood function in the numerator of Bayes' Theorem, the prior distribution is also a function of $\theta$.
+\noindent Thus far, we've selected a model, gathered observed data from an experiment, and constructed a likelihood function in terms of parameter of interest, $\theta$. That said, prior to an experiment, we do not know the value of $\theta$. To account for such uncertainty, we can declare it a random variable and apply a probability distribution on what we think its value is. For example, we may represent $\theta$ as taking on a range of possible values in $\pi(\theta)$, a normal distribution with a defined mean, $\mu$, and standard deviation, $\sigma^2$. Such a distribution is called the \textit{prior}, as it reflects beliefs about the parameter of interest prior to gathering empirical data. It's analog in cases where probabilities are known is $P(H)$. Similar to the likelihood function in the numerator of Bayes' Theorem, the prior distribution is also a function of $\theta$.
 
 \subsection*{A Geometric Interpretation}
 \noindent We've demonstrated above that the numerator of Bayes' Theorem consists of two functions of $\theta$ multiplied by each other. Deviating from the specifics of the above example, the following visually demonstrates the multiplication of two arbitrary distributions:
@@ -255,43 +255,47 @@ L(\theta | x_1, \ldots, x_n) = \prod_{i=1}^n f(x_i|\theta) = \theta^n e^{-\theta
 \end{figure}
 
 \subsection*{The Posterior}
-\noindent While the product distribution clearly incorporates data from both prior beliefs and experiment, its evident that the product distribution's total area is significantly smaller than both of the factor distributions. This is a problem, as the distribution must integrate to 1 in order to be considered a valid probability distribution. At this moment, the product distribution is proportional to what will be the posterior distribution $\pi(\theta \mid x)$, but it does not integrate to 1. For that reason, it's called the \textit{unnormalized posterior}. To obtain we a valid posterior probability distribution, we need a distribution that achieves the following two properties: first, it must be proportional to the unnormalized posterior distribution and second, it must integrate to 1. To achieve these properties, the unnormalized posterior can be divided by what's called, \textit{normalizing constant}, which is the scalar value, $\int_{\Theta} f(x \mid \theta) \pi(\theta) d\theta$. I'd like to share some intuition behind why this operation achieves the aforementioned properties we're after.\\
+\noindent While the product distribution clearly incorporates data from both prior beliefs and experiment, its evident that the product distribution's total area is significantly smaller than both of the factor distributions. This is a problem, as the distribution must integrate to 1 in order to be considered a valid probability distribution. At this moment, the product distribution is proportional to what will be the posterior distribution $\pi(\theta \mid x)$, but it does not integrate to 1. For that reason, it's called the \textit{unnormalized posterior}. To obtain a valid posterior probability distribution, we need a distribution that achieves the following two properties: first, it must be proportional to the unnormalized posterior distribution and second, it must integrate to 1. To achieve these properties, the unnormalized posterior can be divided by what's called the\textit{normalizing constant}, which is the scalar value, $\int_{\Theta} f(x \mid \theta) \pi(\theta) d\theta$.\\
 
 
 \subsection*{The Normalizing Constant}
-\noindent Suppose we're given a function, $g(x)$ that we'd like to normalize to $f(x)$, such that $f(x)$ satisfies the following:
+\noindent The following offers an algebraic explanation for why normalization requires dividing by the integral of the unnormalized posterior distribution function. Suppose we're given a function, $g(x)$ that we'd like to normalize to $f(x)$. Normalization requires that $f(x)$ satisfies the following:
 
 \begin{equation}
 \int_{-\infty}^{\infty} f(x) \, dx = 1
 \end{equation}
 \begin{equation}
-f(x) \propto g(x)
+f(x) \propto g(x) \implies f(x) = k g(x)
 \end{equation}
 
-\noindent The normalizing constant mentioned above is simply the total area encompassed by the unnormalized function, which is $g(x)$ in our case. This can be represented as:
+\noindent Here, $k$ is the unknown normalizing constant. It can be found by substituting $kg(x)$ for $f(x)$ in equation 22,
 
 \begin{equation}
-A_T = \int_{-\infty}^{\infty} g(x) \, dx
+\int_{-\infty}^{\infty} kg(x) \, dx = 1
 \end{equation}
-
-\noindent It's known that along the function $g(x)$, each $g(x_i)$ value has an infinitesimal $dx$ associated with it, for which $x_i$ is a representative value. Given that, the total area $A_T$ can be conceptualized as the sum of individual, infinitesimal slices, each with an area, $g(x_i)dx$. With that established, it's possible to obtain each slice's percentage of the total area by dividing by $A_T$:
-
 \begin{equation}
-A_i = \frac{g(x_i)dx} {A_T}
+k\int_{-\infty}^{\infty} g(x) \, dx = 1
 \end{equation}
-
-\noindent Given that $dx$ is of infinitesimal length, the sum of all infinitesimal slice's areas accounts for 100\% of the total area, $A_T$. Obtaining the fractional area percentage, $A_i$, of each slice within the relevant $x$ range will result in an infinite set of area percentages, the sum of which, is 100\%. This achieves the property declared in equation 22 $\rightarrow$ it integrates to 1.\\
-
-\noindent Furthermore, it may be useful to conceptualize $g(x) / A_T$ as a point-wise division across infinite $g(x)$ values, where any two consecutive operations are: $g(x_i) / A_T$ and $g(x_i + dx) / A_T$. Given that $A_T$ is a scalar value that is invariant with respect to $x$, the quotient $g(x) / A_T$ is indeed proportional to $g(x)$, thereby achieving the property declared in statement 23:
-
 \begin{equation}
-f(x) =  \frac{g(x)} {A_T} \propto g(x)
+\int_{-\infty}^{\infty} g(x) \, dx = \frac{1}{k}
+\end{equation}
+\begin{equation}
+k = \frac{1}{\int_{-\infty}^{\infty} g(x) \, dx}
+\end{equation}
+\begin{equation}
+\implies f(x) = \frac{g(x)}{\int_{-\infty}^{\infty} g(x) \, dx}
 \end{equation}
 
-\noindent Given that the resulting function $f(x)$ is proportional to $g(x)$ and integrates to 1, we can declare that $f(x)$ is a normalized version of $g(x)$. These are the same mechanics used to normalize unnormalized posterior distributions shown above. In practice, the normalizing constant may be difficult to compute, which gives rise to probabilistic sampling methods, such as the Metropolis-Hastings or Gibbs Sampling algorithms.
+\noindent As expected, integrating $f(x)$ yields 1, satisfying equation 22.
+\begin{equation}
+\int_{-\infty}^{\infty} f(x)\, dx = \frac{\int_{-\infty}^{\infty} g(x) \, dx}{\int_{-\infty}^{\infty} g(x) \, dx} = 1
+\end{equation}
+
+\noindent This concludes the normalization of $g(x)$. In practice, the normalizing constant may be difficult to compute, which gives rise to probabilistic sampling methods, such as the Metropolis-Hastings and Gibbs Sampling algorithms.
+
 
 \subsection*{Conclusion}
-\noindent It is my hope that this document serves as a useful tool for better understanding some of the mechanics involved in Bayes' Theorem. As a fan of open-source software, the Latex for this document will be available on GitHub. If anything is incorrect or can be explained better, I strongly urge you to open a pull request! Thank you.
+\noindent It is my hope that this document serves as a useful tool for better understanding some of the mechanics involved in Bayes' Theorem. As a fan of open-source software, the Latex for this document will be available on GitHub. If anything is incorrect or can be better explained, I strongly urge you to open a pull request! Thank you.
 
 \end{document}
 
