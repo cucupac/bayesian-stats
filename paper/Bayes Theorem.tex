@@ -21,9 +21,9 @@ This document aims to provide a geometric, or visual, interpretation of Bayes’
 \newpage
 
 \subsection*{Bayes Rule}
-Show below, Bayes' Rule can be derived using known conditional probabilities. A geometric interpretation of the underlying mechanics is also provided in this section.
+Shown below, Bayes' Rule can be derived using known conditional probabilities. A geometric interpretation of the underlying mechanics is also provided in this section.
 \subsubsection*{Conditional Probabilities:}
-Let \(A\) and \(B\) be distinct sets of events in set \(S\), where \(S\) is the sample space of all possible events. In other words, let  \( A \subseteq S \) and \( B \subseteq S \). \\\\
+Let \(A\) and \(B\) be distinct sets of events in set \(S\), where \(S\) is the sample space of all possible events. Set theoretically, let  \( A \subseteq S \) and \( B \subseteq S \). \\\\
 The conditional probability of event \( A \), given event \( B \) is defined as:
 \begin{equation}
 P(A \mid B) = \frac{P(A \cap B)}{P(B)}
@@ -161,6 +161,14 @@ P(H_j \mid E) = \frac{P(E \cap H_j)}{\sum_{i=1}^{n} P(E \cap H_i)}, \text{ where
 
 \noindent Examining a single, arbitrarily-chosen subsection, note that the subsection's area is equal to the probability of the hypothesis multiplied by the probability of evidence, given that specific hypothesis. This finding is consistent with equation 5 above.
 
+% Image
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1.0\textwidth]{assets/visual_7.png} 
+\caption{Probability of first hypothesis given evidence, visualized.}
+\label{fig:cond_prob}
+\end{figure}
+
 \newpage
 
 \subsection*{Bayes' Theorem with Continuous Random Variables:}
@@ -175,7 +183,6 @@ P(H_j \mid E) = \frac{P(E \cap H_j)}{\sum_{i=1}^{n} P(E \cap H_i)}, \text{ where
 \subsection*{Likelihood}
 \noindent The term, $f(x\mid\theta)$, is often referred to as the likelihood. Here, the likelihood function evaluates the plausibility of the data $x$ under a statistical model parameterized by $\theta$, and identifies the parameter values that are most probable given the observed data. This definition involves some 'statistical model', about which the data plausibility can be assessed against.
 
-\newpage
 \paragraph{Model Selection}
 Let's piece these concepts together with an example. Suppose that we're modeling the 'time to an event', say, the operating lifetime of a certain type of component in a machine. Also, suppose that we have reason to believe the lifetime of that component can be modeled as an exponential distribution:
 
@@ -188,6 +195,7 @@ f(x \mid \theta) = \theta e^{-\theta x}, \text{ where } \theta > 0 \text{ and } 
 \paragraph{Experiement}
 Suppose that an experiment is conducted to measure the lifetimes of the component type of interest. Intuitively, the empirical data outputted from such an experiment should certainly be used to inform the model we've proposed. Such data can be represented as a set of lifetimes, $\{x_1, x_2, ..., x_n\}$. 
 
+\newpage
 
 \paragraph{Calculating Likelihood}
 Using the set of empirically obtained lifetimes, we can now evaluate each observed lifetime $x_i$ against our model, which can be expressed as:
@@ -223,35 +231,67 @@ L(\theta | x_1, \ldots, x_n) = \prod_{i=1}^n f(x_i|\theta) = \theta^n e^{-\theta
 \noindent In summary, we've arrived an an expression, in terms of $\theta$ informed by the experimental data set of lifetimes.
 
 \subsection*{The Prior}
-\noindent Thus far, we've selected a model, gather observed data from an experiment, and constructed a likelihood function in terms of parameter of interest, $\theta$. That said, prior to an experiment, we do not know the value of $\theta$. To account for such uncertainty, we can declare it a random variable and apply a probability distribution on what we think it's value is. For example, we may represent $\theta$ as taking on a range of possible values in $\pi(\theta)$, a normal distribution with a defined mean, $\mu$, and standard deviation, $\sigma^2$. Such a distribution is called the \textit{prior}, as it reflects beliefs about the parameter of interest prior to gathering empirical data. It's analog in cases where probabilities are known is $P(H)$. Similar to the likelihood function in the numerator of Bayes' Theorem, the prior distribution is also a function of $\theta$.
+\noindent Thus far, we've selected a model, gathered observed data from an experiment, and constructed a likelihood function in terms of parameter of interest, $\theta$. That said, prior to an experiment, we do not know the value of $\theta$. To account for such uncertainty, we can declare it a random variable and apply a probability distribution on what we think it's value is. For example, we may represent $\theta$ as taking on a range of possible values in $\pi(\theta)$, a normal distribution with a defined mean, $\mu$, and standard deviation, $\sigma^2$. Such a distribution is called the \textit{prior}, as it reflects beliefs about the parameter of interest prior to gathering empirical data. It's analog in cases where probabilities are known is $P(H)$. Similar to the likelihood function in the numerator of Bayes' Theorem, the prior distribution is also a function of $\theta$.
 
-\newpage
 \subsection*{A Geometric Interpretation}
-\noindent We've demonstrated above that the numerator of Bayes' Theorem consists of two functions of $\theta$ multiplied by each other. The following visually demonstrates the multiplication of two arbitrary distributions:
-
-% Image
-\begin{figure}[h!]
-\centering
-\includegraphics[width=1.0\textwidth]{assets/visual_7.png} 
-\caption{Two factor distributions and their product distribution}
-\label{fig:cond_prob}
-\end{figure}
-
-\noindent It's worth taking a moment to understand what the representation above expresses. As shown, the product distribution appears to be centered between the hypothetical likelihood and prior distributions. This distribution positioning represents the idea that the product distribution is indeed accounting for information from both experiment (likelihood) and prior beliefs. The two distributions are multiplied together by an operation called a point-wise multiplication. A point-wise multiplication of two distributions involves multiplying the values of their representative functions at each point in their domain, resulting in a new distribution that reflects the combined characteristics of both original distributions at each point.
-
-\newpage
-\noindent This process is visually demonstrated for a discrete case below:
+\noindent We've demonstrated above that the numerator of Bayes' Theorem consists of two functions of $\theta$ multiplied by each other. Deviating from the specifics of the above example, the following visually demonstrates the multiplication of two arbitrary distributions:
 
 % Image
 \begin{figure}[h!]
 \centering
 \includegraphics[width=1.0\textwidth]{assets/visual_8.png} 
+\caption{Two factor distributions and their product distribution}
+\label{fig:cond_prob}
+\end{figure}
+
+\noindent It's worth taking a moment to understand what the representation above expresses. As shown, the product distribution appears to be centered between the hypothetical likelihood and prior distributions. This distribution positioning represents the idea that the product distribution is indeed accounting for information from both experiment (likelihood) and prior beliefs. The two distributions are multiplied together by an operation called a point-wise multiplication. A point-wise multiplication of two distributions involves multiplying the values of their representative functions at each point in their domain, resulting in a new distribution that reflects the combined characteristics of both original distributions at each point. This process is visually demonstrated for a discrete case below:
+
+% Image
+\begin{figure}[h!]
+\centering
+\includegraphics[width=1.0\textwidth]{assets/visual_9.png} 
 \caption{Point-wise multiplication visualized for a discrete case}
 \label{fig:cond_prob}
 \end{figure}
 
 \subsection*{The Posterior}
-\noindent While the product distribution clearly incorporates data from both prior beliefs and experiment, its evident that the product distribution's total area is significantly smaller than both of the factor distributions. This is a problem, as the distribution must integrate to 1 in order to be considered a valid probability distribution. At this moment, the product distribution is proportional to what will be the posterior distribution $\pi(\theta \mid x)$, but it does not integrate to 1. For that reason, it's called the \textit{unnormalized posterior}. To obtain we a valid posterior probability distribution, the distribution must be \textit{normalized} by dividing by the scalar value $\int_{\Theta} f(x \mid \theta) \pi(\theta) d\theta$. To understand why, suppose the integral resolves to some value $v$, where $v \neq 1$. This implies that $v \cdot k = 1$, where $k$ is some proportionality constant.
+\noindent While the product distribution clearly incorporates data from both prior beliefs and experiment, its evident that the product distribution's total area is significantly smaller than both of the factor distributions. This is a problem, as the distribution must integrate to 1 in order to be considered a valid probability distribution. At this moment, the product distribution is proportional to what will be the posterior distribution $\pi(\theta \mid x)$, but it does not integrate to 1. For that reason, it's called the \textit{unnormalized posterior}. To obtain we a valid posterior probability distribution, we need a distribution that achieves the following two properties: first, it must be proportional to the unnormalized posterior distribution and second, it must integrate to 1. To achieve these properties, the unnormalized posterior can be divided by what's called, \textit{normalizing constant}, which is the scalar value, $\int_{\Theta} f(x \mid \theta) \pi(\theta) d\theta$. I'd like to share some intuition behind why this operation achieves the aforementioned properties we're after.\\
+
+
+\subsection*{The Normalizing Constant}
+\noindent Suppose we're given a function, $g(x)$ that we'd like to normalize to $f(x)$, such that $f(x)$ satisfies the following:
+
+\begin{equation}
+\int_{-\infty}^{\infty} f(x) \, dx = 1
+\end{equation}
+\begin{equation}
+f(x) \propto g(x)
+\end{equation}
+
+\noindent The normalizing constant mentioned above is simply the total area encompassed by the unnormalized function, which is $g(x)$ in our case. This can be represented as:
+
+\begin{equation}
+A_T = \int_{-\infty}^{\infty} g(x) \, dx
+\end{equation}
+
+\noindent It's known that along the function $g(x)$, each $g(x_i)$ value has an infinitesimal $dx$ associated with it, for which $x_i$ is a representative value. Given that, the total area $A_T$ can be conceptualized as the sum of individual, infinitesimal slices, each with an area, $g(x_i)dx$. With that established, it's possible to obtain each slice's percentage of the total area by dividing by $A_T$:
+
+\begin{equation}
+A_i = \frac{g(x_i)dx} {A_T}
+\end{equation}
+
+\noindent Given that $dx$ is of infinitesimal length, the sum of all infinitesimal slice's areas accounts for 100\% of the total area, $A_T$. Obtaining the fractional area percentage, $A_i$, of each slice within the relevant $x$ range will result in an infinite set of area percentages, the sum of which, is 100\%. This achieves the property declared in equation 22 $\rightarrow$ it integrates to 1.\\
+
+\noindent Furthermore, it may be useful to conceptualize $g(x) / A_T$ as a point-wise division across infinite $g(x)$ values, where any two consecutive operations are: $g(x_i) / A_T$ and $g(x_i + dx) / A_T$. Given that $A_T$ is a scalar value that is invariant with respect to $x$, the quotient $g(x) / A_T$ is indeed proportional to $g(x)$, thereby achieving the property declared in statement 23:
+
+\begin{equation}
+f(x) =  \frac{g(x)} {A_T} \propto g(x)
+\end{equation}
+
+\noindent Given that the resulting function $f(x)$ is proportional to $g(x)$ and integrates to 1, we can declare that $f(x)$ is a normalized version of $g(x)$. These are the same mechanics used to normalize unnormalized posterior distributions shown above. In practice, the normalizing constant may be difficult to compute, which gives rise to probabilistic sampling methods, such as the Metropolis-Hastings or Gibbs Sampling algorithms.
+
+\subsection*{Conclusion}
+\noindent It is my hope that this document serves as a useful tool for better understanding some of the mechanics involved in Bayes' Theorem. As a fan of open-source software, the Latex for this document will be available on GitHub. If anything is incorrect or can be explained better, I strongly urge you to open a pull request! Thank you.
 
 \end{document}
 
